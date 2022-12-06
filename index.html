@@ -13,28 +13,44 @@
     <header>
         <h1>Code Quiz</h1>
     </header>
-    <!-- <section> -->
-        <h3 class="time"></h3>
-        <div id="main"></div>
-    <!-- </section> -->
-    <section class ="start page">
+    <main id="quizContainer ">
+    <section id ="startScreen">
         <p> Try to answer the following code related questions in the 
             given amount of time to earn a spot on our leaderboard! The faster
             you answer the questions, the better your score will be. Click the button
             below to begin.
         </p>
-        <button id = "start">Start Quiz</button>
+        <button id = "startButton">Start Quiz</button>
      </section>
-    <section class = "question" data-index="0">
+    <!-- <section class = "question" data-index="0">
         <h2 id="next"></h2>
         <div id="possible"></div>
+    </section> -->
+    <section id="quizScreen">
+        <h2></h2>
+        <div id="buttonContainer">
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
     </section>
-    <section class = "score"> 
-        
+    <section id = "endScreen"> 
+        <h2>All done!</h2>
+        <p>Your score is: <span id="scoreLabel">50 </span> </p>
+        <input id="initials" placeholder = "enter initials" />
+        <button id = "submitScore">Submit</button>
     </section>
+    <section id="highScoreScreen">
+        <h2>High Scores</h2>
+        <ul>    
+        </ul>
+    <button id="playAgain">Play again?</button>
+</section>
+</main>
     
     <script src="./script.js"></script>
-    <script src="./timer.js"></script>
+    <!-- <script src="./timer.js"></script> -->
 </body>
 
 </html>
