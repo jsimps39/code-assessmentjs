@@ -72,7 +72,7 @@ var start = function (event) {
     var element = event.target;
     if (element.matches('.start button')){
         console.log("begin");
-        displayQuestion;
+        displayQuestion();
     }
 }
 
@@ -86,4 +86,4 @@ document.addEventListener('click', advance);
 // }
 
 //set up different start screen in a different container
-//displayQuestion();
+displayQuestion();
