@@ -13,29 +13,28 @@
     <header>
         <h1>Code Quiz</h1>
     </header>
+    <!-- <section> -->
+        <h3 class="time"></h3>
+        <div id="main"></div>
+    <!-- </section> -->
+    <section class ="start page">
+        <p> Try to answer the following code related questions in the 
+            given amount of time to earn a spot on our leaderboard! The faster
+            you answer the questions, the better your score will be. Click the button
+            below to begin.
+        </p>
+        <button id = "start">Start Quiz</button>
+     </section>
     <section class = "question" data-index="0">
-        <h2 id="next">How much wood could a woodchuck chuck?</h2>
-        <button data-choice="0">10</button>
-        <button data-choice="1">20</button>
-        <button data-choice="2">30</button>
-        <button data-choice="3">40</button>
+        <h2 id="next"></h2>
+        <div id="possible"></div>
     </section>
-    <section class = "question" data-index="1">
-        <h2 id="next">"Did you have your break today?"</h2>
-        <button data-choice="0">Yes</button>
-        <button data-choice="1">No</button>
+    <section class = "score"> 
+        
     </section>
-    <section class = "question" data-index="2">
-        <h2 id="next">Do you like ice cream?</h2>
-        <button data-choice="0">Yes</button>
-        <button data-choice="1">No</button>
-    </section>
-    <section class = "question" data-index="3">
-        <h2 id="next">What's your favorite pizza topping?</h2>
-        <button data-choice="0">Pepperoni</button>
-        <button data-choice="1">Sausage</button>
-    </section>
+    
     <script src="./script.js"></script>
+    <script src="./timer.js"></script>
 </body>
 
 </html>
