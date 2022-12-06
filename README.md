@@ -11,5 +11,5 @@
 This project was a timed coding quiz in which your score will be displayed once you finish.
 
 #### Link to project
-[link]()
+[link](https://jsimps39.github.io/code-assessmentjs/)
 
