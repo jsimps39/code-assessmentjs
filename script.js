@@ -67,7 +67,7 @@ var moveForward = function(){
     index++;
 
     if(index >= questions.length){
-        displayEndScreen();
+        endScreen.style.display = "block";//displayEndScreen();
         return;
     }
 
@@ -130,9 +130,9 @@ var displayEndScreen = function() {
         highScoreScreen.querySelector('ul').appendChild(listItem);
     }
     hideAllScreens();
-    endScreen.style.display = 'block';
-    scoreLabel.textContent = secondsLeft;
-    clearInterval(timerInterval);
+    endScreen.style.display = "block";
+    // scoreLabel.textContent = secondsLeft;
+    // clearInterval(timerInterval);
 }
 
 var displayQuestion = function () {
@@ -141,8 +141,7 @@ var displayQuestion = function () {
     quizScreen.querySelector('h2').textContent = currentQuestion.message;
     quizScreen.querySelector('#buttonContainer').innerHTML = null;
 
-    //for (var buttonLabel of questions[index].possible){ //changed from cursor to index
-      for (var i = 0; i <currentQuestion.possible.length; i++){
+      for (var i = 0; i < currentQuestion.possible.length; i++){
          var buttonEl = document.createElement('button');
         buttonEl.textContent = currentQuestion.possible[i];
         buttonEl.dataset.id = i; //buttonLabel[0];
@@ -173,7 +172,6 @@ var start = function (event) {
     }
 }
 
-//document.addEventListener('click', start)
 submitScore.addEventListener('click', function(){
     console.log('send to local storage');
     hideAllScreens();
@@ -184,9 +182,9 @@ playAgain.addEventListener('click', function(){
     console.log('display start screen');
     hideAllScreens();
     startScreen.style.display = "block";
+    window.location.reload();
 });
 
-//set up different start screen in a different container
 hideAllScreens();
 startScreen.style.display = "block";
 //displayQuestion();
