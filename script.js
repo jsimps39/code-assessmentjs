@@ -7,7 +7,7 @@ var startScreen = document.querySelector('#startScreen');
 var endScreen = document.querySelector('#endScreen');
 var highScoreScreen = document.querySelector('#highScoreScreen');
 var scoreLabel = document.querySelector('#scoreLabel');
-var initialsInput = document.querySelector('#initialsInput');
+var initialsInput = document.querySelector('#initials');
 var submitScore = document.querySelector('#submitScore');
 var playAgain = document.querySelector('#playAgain');
 var timeEl = document.querySelector('#time')
@@ -15,20 +15,20 @@ var timeEl = document.querySelector('#time')
 var index = 0;
 var secondsLeft = 100;
 var timerInterval;
-var cursor = 0;
+//var cursor = 0;
 
 var questions = [
-    { message : "How much wood could a woodchuck chuck?",
+    { message : "Which is not a commonly used data type?",
     correctAnswer: "b",
     possible: [
-        "a. 10",
-        "b. 20",
-        "c. 30",
-        "d. 40",
+        "a. Number",
+        "b. Racecar",
+        "c. String",
+        "d. Boolean",
     ],
 },
     {
-        message: "did you have your break today?",
+        message: "Are you good at coding?",
         correctAnswer: "a",
         possible: [
             "a. Yes",
@@ -36,7 +36,7 @@ var questions = [
         ],
 },
     {
-        message: "Do you like ice cream",
+        message: "You can create as many objects as you want in a class",
         correctAnswer: "a",
         possible: [
             "a. Yes",
@@ -49,6 +49,8 @@ var questions = [
         possible: [
             "a. Pepperoni",
             "b. Sausage",
+            "c. Onion",
+            "d. Pineapple",
         ],
 }
  ];
@@ -56,11 +58,10 @@ var questions = [
 var startTimer = function() {
     console.log('timer started')
     timerInterval = setInterval(function (){
-        secondsLeft --;
-
-    });
-
-}
+        secondsLeft-- ;
+        timeEl.textContent = secondsLeft;
+    },1000);
+};
 
 var moveForward = function(){
     var correct = true;
@@ -126,7 +127,7 @@ var displayEndScreen = function() {
 
     for(var i=0; i < highScoresList.length; i++){
         var listItem = document.createElement('li');
-        listItem.textContent = highScoresList[i].initilas + ":" + highScoresList[i].score;
+        listItem.textContent = highScoresList[i].initials + ": " + highScoresList[i].score;
         highScoreScreen.querySelector('ul').appendChild(listItem);
     }
     hideAllScreens();
@@ -149,20 +150,20 @@ var displayQuestion = function () {
     }
 };
 
-var advance = function (event) {
-    var element = event.target;
-    if (element.matches('.question button ')) {
-        var answer = element.dataset.choice === correctAnswers[cursor];
-        console.log(element.dataset.choice);
-        console.log(correctAnswers[cursor]);
-        console.log(answer);
-        if (cursor < questions.length - 1) {
-            cursor++;
-            questionEl.dataset.index = cursor;
-        } 
-        displayQuestion();
-    }
-};
+// var advance = function (event) {
+//     var element = event.target;
+//     if (element.matches('.question button ')) {
+//         var answer = element.dataset.choice === correctAnswers[cursor];
+//         console.log(element.dataset.choice);
+//         console.log(correctAnswers[cursor]);
+//         console.log(answer);
+//         if (cursor < questions.length - 1) {
+//             cursor++;
+//             questionEl.dataset.index = cursor;
+//         } 
+//         displayQuestion();
+//     }
+// };
 
 var start = function (event) {
     var element = event.target;
@@ -176,6 +177,7 @@ submitScore.addEventListener('click', function(){
     console.log('send to local storage');
     hideAllScreens();
     highScoreScreen.style.display = "block";
+
 });
 
 playAgain.addEventListener('click', function(){
@@ -187,4 +189,4 @@ playAgain.addEventListener('click', function(){
 
 hideAllScreens();
 startScreen.style.display = "block";
-//timeEl.textContent = secondsLeft;
+timeEl.textContent = secondsLeft;
