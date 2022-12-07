@@ -10,7 +10,7 @@ var scoreLabel = document.querySelector('#scoreLabel');
 var initialsInput = document.querySelector('#initialsInput');
 var submitScore = document.querySelector('#submitScore');
 var playAgain = document.querySelector('#playAgain');
-//var timeEl = document.querySelector('#time')
+var timeEl = document.querySelector('#time')
 
 var index = 0;
 var secondsLeft = 100;
@@ -53,14 +53,14 @@ var questions = [
 }
  ];
 
-// var startTimer = function() {
-//     console.log('timer started')
-//     timerInterval = setInterval(function ()){
-//         secondsLeft --;
+var startTimer = function() {
+    console.log('timer started')
+    timerInterval = setInterval(function (){
+        secondsLeft --;
 
-//     }
+    });
 
-// }
+}
 
 var moveForward = function(){
     var correct = true;
@@ -131,8 +131,8 @@ var displayEndScreen = function() {
     }
     hideAllScreens();
     endScreen.style.display = "block";
-    // scoreLabel.textContent = secondsLeft;
-    // clearInterval(timerInterval);
+    scoreLabel.textContent = secondsLeft;
+    clearInterval(timerInterval);
 }
 
 var displayQuestion = function () {
@@ -159,7 +159,7 @@ var advance = function (event) {
         if (cursor < questions.length - 1) {
             cursor++;
             questionEl.dataset.index = cursor;
-        }  //else if cursor = questions.length - display high score page?
+        } 
         displayQuestion();
     }
 };
@@ -187,5 +187,4 @@ playAgain.addEventListener('click', function(){
 
 hideAllScreens();
 startScreen.style.display = "block";
-//displayQuestion();
 //timeEl.textContent = secondsLeft;
